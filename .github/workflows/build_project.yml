@@ -1,11 +1,13 @@
 name: build_project
-# on – определяет события, которые запускают воркфлоу
+
 on: push
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
+      uses: action/checkout@v3
+      uses: actions/setup-node@v3
       run: make setup
       run: make test 
       run: make lint
